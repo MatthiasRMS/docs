@@ -1,0 +1,160 @@
+---
+title: Key Concepts
+subtitle: Resources that will help you get started using the Rechain API
+slug: concepts
+description: Learn about the Product, Product Field, Development Stage, Component, Review, Color, Meaurement Template, Bom Template, Points of Measure, Trackers, Construction Detail, Quality Control, Order, and Supplier resources that comprise the Rechain API.
+---
+
+## Endpoints and requests
+
+Rechain API endpoints are organized by resource type. You’ll need to use different endpoints depending on your requirements.
+
+All API endpoints follow this pattern:
+
+`https://api.rechain.co/public/v1/{resource}`
+
+<AccordionGroup>
+  <Accordion
+    title="Example POST request"
+  >
+    Create a new product.
+    This example illustrates how to create a new product using the `Product` resource and the `POST /public/v1/products` endpoint. Replace `token` with the access token you generated in the Authentication section.
+    
+    <CodeGroup>
+    ```sh cURL
+
+curl -X POST https://api.rechain.co/public/v1/products \
+     -H "Authorization: Bearer <token>" \
+     -H "Content-Type: application/json" \
+     -d '{
+  "name": "T-Shirt",
+  "reference": "RCH-001"
+}'
+    ```
+    </CodeGroup>
+  
+  </Accordion>
+  <Accordion
+    title="Example GET request"
+  >
+    Retrieve a product.
+    This example illustrates how to find a new product using the `Product` resource and the `GET /public/v1/products/:id` endpoint. Replace `token` with the access token you generated in the Authentication section.
+    
+    <CodeGroup>
+    ```sh cURL
+
+curl https://api.rechain.co/public/v1/product/:id \
+     -H "Authorization: Bearer <token>"
+    ```
+    </CodeGroup>
+  
+  </Accordion>
+  <Accordion
+    title="Example PUT request"
+  >
+    Update a new product.
+    This example illustrates how to update an existing product using the `Product` resource and the `PUT /public/v1/products/:id` endpoint. Replace `token` with the access token you generated in the Authentication section.
+    
+    <CodeGroup>
+    ```sh cURL
+curl -X PUT https://api.rechain.co/public/v1/product/id \
+     -H "Authorization: Bearer <token>" \
+     -H "Content-Type: application/json" \
+     -d '{
+        "name": "T-Shirt"
+     }'
+    ```
+    </CodeGroup>
+  
+  </Accordion>
+  <Accordion
+    title="Example DELETE request"
+  >
+    Delete a product.
+    This example illustrates how to delete an existing product using the `Product` resource and the `DEL /public/v1/products/:id` endpoint. Replace `token` with the access token you generated in the Authentication section.
+    
+    <CodeGroup>
+    ```sh cURL
+
+curl -X DELETE https://api.rechain.co/public/v1/product/:id \
+     -H "Authorization: Bearer <token>"
+
+    ```
+    </CodeGroup>
+  
+  </Accordion>
+</AccordionGroup>
+
+## Rate limits
+
+The Rechain API supports a limit of 100 requests per account per minute.
+
+### Usage limitations
+
+The Rechain API supports a limit of 100 requests per minute.
+
+Past the limit, the API will return a `429 Too Many Requests error`.
+
+All API responses include the `X-Rechain-Api-Call-Limit` header, which shows how many requests the client has made, and the total number allowed per minute.
+
+A 429 response will also include a `Retry-After` header with the number of seconds to wait until retrying your query.
+
+
+## Resources Available
+
+### Product
+The Product resource allows you to create, update, and manage products in the PLM system. You can define product details, such as name, description, and categories, and manage product variations, like color or size. You can also associate technical specifications, images, and other assets to a product.
+
+
+
+### Product Field
+The Product Field resource lets you define and manage custom fields for products in the PLM system. You can create, update, and organize fields to capture specific product attributes or metadata, letting you create detailed product specifications. Each field can be associated with a product category, and you can define field types, such as text, listbox, or date.
+
+
+### Development Stage
+The Development Stage resource helps track the progress of products through various stages in the product development lifecycle. You can define, update, and reorder stages such as design, prototyping, sampling, and production, providing a clear workflow for the development process.
+
+
+### Component
+The Component resource allows you to manage product components such as fabrics, trims, packaging, or other materials. You can create, update, and link components to products, enabling detailed tracking of all materials used in the creation of a product.
+
+
+### Review
+The Review resource enables users to record feedback and comments on product samples. You can add images, annotate them, and document sample measurements compared to product specifications, such as during a fitting session. This helps streamline the sample review process by capturing critical details for further product development.
+
+
+### Color
+The Color resource allows you to define and manage colors used in product development. You can create, update, and associate colors with products to ensure consistent color usage across different product variations. A color can also be assigned to a component, such as a fabric or trim, to track color usage in materials. The Color resource has fields for color name, code, and pantone number.
+
+
+### Measurement Template
+The Measurement Template resource lets you create and manage standardized templates for product measurements. These templates can be applied to different product types to ensure consistent sizing and measurement across designs and can be customized for specific product categories.
+
+
+### BOM Template
+The BOM (Bill of Materials) Template resource lets you create and manage templates for bills of materials, which outline the components and quantities required to manufacture a product. These templates can be reused for similar products, ensuring consistent and accurate documentation of materials needed for production.
+
+
+### Points of Measure
+The Points of Measure resource allows you to define and manage specific points on a product where measurements are taken (e.g., chest, waist, inseam). You can create, update, and associate these points with measurement templates, ensuring precise and consistent product sizing.
+
+
+### Trackers
+The Trackers resource provides a way to monitor key metrics or milestones in the product development process. You can create and manage trackers to oversee timelines, cost targets, or other relevant performance indicators, helping teams stay aligned with project goals.
+
+
+### Construction Detail
+The Construction Detail resource allows you to define and document specific construction methods or techniques used in product development, such as stitching types, seam placements, or fabric treatments. You can create, update, and associate construction details with products to ensure precise manufacturing instructions.
+
+
+### Quality Control
+The Quality Control resource allows you to manage and track quality control inspections for products. It includes information such as inspection reports, the inspector’s details, the product inspected, inspection dates, and results. You can create, update, and retrieve detailed QC reports to ensure that products meet the required standards before approval for production or release.
+
+### Order
+The Order resource represents a purchase order for bulk production. It allows you to create, manage, and track orders placed with suppliers. You can specify product details, quantities, delivery dates, and other essential information. You can keep track of order status, timelines, and shipping details.
+
+
+### Supplier
+The Supplier resource enables you to manage suppliers within the PLM. You can create, retrieve, and update supplier information, including contact details, addresses, and capabilities. It helps link suppliers to specific products or components. You can also associate certifications, audits, and other documents with a supplier. Suppliers can be differentiated by type, such as manufacturer, or component supplier.
+
+```

@@ -1,0 +1,20 @@
+tags:
+  - order
+summary: Add a new order
+description: Add a new order
+responses:
+  "200":
+    description: Successful operation
+    content:
+      application/json:
+        schema:
+          $ref: "./schema.yaml#/components/schemas/OrderResponse"
+  "405":
+    description: Invalid input
+requestBody:
+  description: Create a new order in the store
+  required: true
+  content:
+    application/json:
+      schema:
+        $ref: "./schema.yaml#/components/schemas/OrderBase"

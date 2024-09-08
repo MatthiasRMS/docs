@@ -1,0 +1,32 @@
+tags:
+  - quality_control
+summary: Update a quality control
+description: Update an existing quality control by Id
+parameters:
+  - name: id
+    in: path
+    description: ID of quality control to return
+    required: true
+    schema:
+      type: string
+      format: uuid
+responses:
+  "200":
+    description: Successful operation
+    content:
+      application/json:
+        schema:
+          $ref: "./schema.yaml#/components/schemas/QualityControlResponse"
+  "400":
+    description: Invalid ID supplied
+  "404":
+    description: quality control not found
+  "405":
+    description: Validation exception
+requestBody:
+  description: Update an existent quality control
+  required: true
+  content:
+    application/json:
+      schema:
+        $ref: "./schema.yaml#/components/schemas/QualityControlBase"

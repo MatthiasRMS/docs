@@ -1,0 +1,15 @@
+tags:
+  - tracker
+summary: Delete a tracker
+description: ""
+parameters:
+  - name: id
+    in: path
+    description: tracker id to delete
+    required: true
+    schema:
+      type: string
+      format: uuid
+responses:
+  "400":
+    description: Invalid tracker id

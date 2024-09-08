@@ -1,0 +1,20 @@
+tags:
+  - construction_detail
+summary: Add a new construction detail
+description: Add a new construction detail
+responses:
+  "200":
+    description: Successful operation
+    content:
+      application/json:
+        schema:
+          $ref: "./schema.yaml#/components/schemas/ConstructionDetailResponse"
+  "405":
+    description: Invalid input
+requestBody:
+  description: Create a new construction detail
+  required: true
+  content:
+    multipart/form-data:
+      schema:
+        $ref: "./schema.yaml#/components/schemas/ConstructionDetailCreate"

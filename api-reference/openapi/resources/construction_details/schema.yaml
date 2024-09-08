@@ -1,0 +1,55 @@
+components:
+  schemas:
+    ConstructionDetailBase:
+      type: object
+      properties:
+        name:
+          type: string
+          example: "Red"
+        companyId:
+          type: string
+          format: uuid
+          example: "123e4567-e89b-12d3-a456-426614174000"
+        description:
+          type: string
+          example: "description"
+        fileUrl:
+          type: string
+          example: "https://example.com/file.png"
+    ConstructionDetailCreate:
+      type: object
+      properties:
+        name:
+          type: string
+          example: "Red"
+        companyId:
+          type: string
+          format: uuid
+          example: "123e4567-e89b-12d3-a456-426614174000"
+        description:
+          type: string
+          example: "description"
+        image:
+          type: string
+          format: binary
+          description: "The photo file to upload"
+      required:
+        - name
+        - companyId
+    ConstructionDetailResponse:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/ConstructionDetailBase'
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: "123e4567-e89b-12d3-a456-426614174000"
+        createdAt:
+          type: string
+          format: date-time
+          example: "2023-08-23T18:25:43.511Z"
+        updatedAt:
+          type: string
+          format: date-time
+          example: "2023-08-23T18:25:43.511Z"

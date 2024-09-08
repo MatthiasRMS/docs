@@ -1,0 +1,15 @@
+tags:
+  - component
+summary: Delete a component
+description: ""
+parameters:
+  - name: id
+    in: path
+    description: component id to delete
+    required: true
+    schema:
+      type: string
+      format: uuid
+responses:
+  "400":
+    description: Invalid component id

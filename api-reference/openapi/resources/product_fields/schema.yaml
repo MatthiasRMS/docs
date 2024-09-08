@@ -1,0 +1,56 @@
+components:
+  schemas:
+    ProductField:
+      type: object
+      properties:
+        name:
+          type: string
+          example: "Sample Name"
+        company_id:
+          type: string
+          example: "123e4567-e89b-12d3-a456-426614174000"
+        position:
+          type: integer
+          example: 1
+        product_field_group_id:
+          type: string
+          example: "123e4567-e89b-12d3-a456-426614174000"
+        field_type:
+          type: integer
+          description: "Field type, can be any of { short_text: 0, long_text: 1, checkbox: 2, listbox: 3, date: 4 }"
+          enum:
+            - 0
+            - 1
+            - 2
+            - 3
+            - 4
+          example: 3
+        multiple_selection:
+          type: boolean
+          example: true
+        listbox_options:
+          type: array
+          items:
+            type: string
+          example:
+            - "Option 1"
+            - "Option 2"
+            - "Option 3"
+        createdAt:
+          type: string
+          format: date-time
+          example: "2021-01-01T00:00:00Z"
+        updatedAt:
+          type: string
+          format: date-time
+          example: "2021-01-01T00:00:00Z"
+      required:
+        - name
+        - company_id
+    ProductFieldResponse:
+      properties:
+        id:
+          type: string
+          example: "123e4567-e89b-12d3-a456-426614174000"
+      allOf:
+        - $ref: '#/components/schemas/ProductField'

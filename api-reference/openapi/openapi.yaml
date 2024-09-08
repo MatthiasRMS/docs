@@ -1,0 +1,238 @@
+openapi: 3.1.0
+servers:
+  - url: https://api.rechain.co/public/v1
+    description: API server
+info:
+  description: |-
+    This is a sample Rechain Server based on the OpenAPI 3.0 specification.  You can find out more about
+    Swagger at [http://swagger.io](http://swagger.io). In the third iteration of Rechain, we've switched to the design first approach!
+    You can now help us improve the API whether it's by making changes to the definition itself or to the code.
+    That way, with time, we can improve the API in general, and expose some of the new features in OAS3.
+
+    Some useful links:
+    - [The Rechain repository](https://github.com/swagger-api/swagger-productstore)
+    - [The source API definition for the Rechain](https://github.com/swagger-api/swagger-productstore/blob/master/src/main/resources/openapi.yaml)
+  version: 1.0.17
+  title: Swagger Productstore - OpenAPI 3.0
+  termsOfService: "http://swagger.io/terms/"
+  contact:
+    email: apiteam@swagger.io
+  license:
+    name: Apache 2.0
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+tags:
+  - name: product
+    description: Everything about your Products
+    externalDocs:
+      description: Find out more
+      url: "http://swagger.io"
+  - name: product_field
+    description: Everything about your Product Fields
+    externalDocs:
+      description: Find out more about our store
+      url: "http://swagger.io"
+  - name: development_stage
+    description: Everything about your Development Stages
+  - name: component
+    description: Everything about your Components
+  - name: review
+    description: Everything about your Reviews
+  - name: color
+    description: Everything about your Colors
+  - name: measurement_template
+    description: Everything about your Measurement Templates
+  - name: bom_template
+    description: Everything about your BOM Templates
+  - name: points_of_measure
+    description: Everything about your Points of measure
+  - name: tracker
+    description: Everything about your Trackers
+  - name: construction_detail
+    description: Everything about your Construction details
+  - name: quality_control
+    description: Everything about your Quality Control
+  - name: supplier
+    description: Everything about your Suppliers
+paths:
+  /products:
+    get:
+      $ref: "./../resources/products/index.yaml"
+    post:
+      $ref: "./../resources/products/create.yaml"
+  "/product/{id}":
+    get:
+      $ref: "./../resources/products/show.yaml"
+    put:
+      $ref: "./../resources/products/update.yaml"
+    delete:
+      $ref: "./../resources/products/delete.yaml"
+  /product_fields:
+    get:
+      $ref: "./../resources/product_fields/index.yaml"
+    post:
+      $ref: "./../resources/product_fields/create.yaml"
+  "/product_fields/{id}":
+    get:
+      $ref: "./../resources/product_fields/show.yaml"
+    put:
+      $ref: "./../resources/product_fields/update.yaml"
+    delete:
+      $ref: "./../resources/product_fields/delete.yaml"
+  /development_stages:
+    get:
+      $ref: "./../resources/development_stages/index.yaml"
+    post:
+      $ref: "./../resources/development_stages/create.yaml"
+  "/development_stages/{id}":
+    get:
+      $ref: "./../resources/development_stages/show.yaml"
+    put:
+      $ref: "./../resources/development_stages/update.yaml"
+    delete:
+      $ref: "./../resources/development_stages/delete.yaml"
+  /components:
+    get:
+      $ref: "./../resources/components/index.yaml"
+    post:
+      $ref: "./../resources/components/create.yaml"
+  "/components/{id}":
+    get:
+      $ref: "./../resources/components/show.yaml"
+    put:
+      $ref: "./../resources/components/update.yaml"
+    delete:
+      $ref: "./../resources/components/delete.yaml"
+  /reviews:
+    get:
+      $ref: "./../resources/reviews/index.yaml"
+    post:
+      $ref: "./../resources/reviews/create.yaml"
+  "/reviews/{id}":
+    get:
+      $ref: "./../resources/reviews/show.yaml"
+    put:
+      $ref: "./../resources/reviews/update.yaml"
+    delete:
+      $ref: "./../resources/reviews/delete.yaml"
+  /colors:
+    get:
+      $ref: "./../resources/colors/index.yaml"
+    post:
+      $ref: "./../resources/colors/create.yaml"
+  "/colors/{id}":
+    get:
+      $ref: "./../resources/colors/show.yaml"
+    put:
+      $ref: "./../resources/colors/update.yaml"
+    delete:
+      $ref: "./../resources/colors/delete.yaml"
+  /measurement_templates:
+    get:
+      $ref: "./../resources/measurement_templates/index.yaml"
+    post:
+      $ref: "./../resources/measurement_templates/create.yaml"
+  "/measurement_templates/{id}":
+    get:
+      $ref: "./../resources/measurement_templates/show.yaml"
+    put:
+      $ref: "./../resources/measurement_templates/update.yaml"
+    delete:
+      $ref: "./../resources/measurement_templates/delete.yaml"
+  /bom_templates:
+    get:
+      $ref: "./../resources/bom_templates/index.yaml"
+    post:
+      $ref: "./../resources/bom_templates/create.yaml"
+  "/bom_templates/{id}":
+    get:
+      $ref: "./../resources/bom_templates/show.yaml"
+    put:
+      $ref: "./../resources/bom_templates/update.yaml"
+    delete:
+      $ref: "./../resources/bom_templates/delete.yaml"
+  /points_of_measures:
+    get:
+      $ref: "./../resources/points_of_measures/index.yaml"
+    post:
+      $ref: "./../resources/points_of_measures/create.yaml"
+  "/points_of_measures/{id}":
+    get:
+      $ref: "./../resources/points_of_measures/show.yaml"
+    put:
+      $ref: "./../resources/points_of_measures/update.yaml"
+    delete:
+      $ref: "./../resources/points_of_measures/delete.yaml"
+  /trackers:
+    get:
+      $ref: "./../resources/trackers/index.yaml"
+    post:
+      $ref: "./../resources/trackers/create.yaml"
+  "/trackers/{id}":
+    get:
+      $ref: "./../resources/trackers/show.yaml"
+    put:
+      $ref: "./../resources/trackers/update.yaml"
+    delete:
+      $ref: "./../resources/trackers/delete.yaml"
+  /construction_details:
+    get:
+      $ref: "./../resources/construction_details/index.yaml"
+    post:
+      $ref: "./../resources/construction_details/create.yaml"
+  "/construction_details/{id}":
+    get:
+      $ref: "./../resources/construction_details/show.yaml"
+    put:
+      $ref: "./../resources/construction_details/update.yaml"
+    delete:
+      $ref: "./../resources/construction_details/delete.yaml"
+  /quality_controls:
+    get:
+      $ref: "./../resources/quality_controls/index.yaml"
+    post:
+      $ref: "./../resources/quality_controls/create.yaml"
+  "/quality_controls/{id}":
+    get:
+      $ref: "./../resources/quality_controls/show.yaml"
+    put:
+      $ref: "./../resources/quality_controls/update.yaml"
+    delete:
+      $ref: "./../resources/quality_controls/delete.yaml"
+  /orders:
+    get:
+      $ref: "./../resources/orders/index.yaml"
+    post:
+      $ref: "./../resources/orders/create.yaml"
+  "/orders/{id}":
+    get:
+      $ref: "./../resources/orders/show.yaml"
+    put:
+      $ref: "./../resources/orders/update.yaml"
+    delete:
+      $ref: "./../resources/orders/delete.yaml"
+  /suppliers:
+    get:
+      $ref: "./../resources/suppliers/index.yaml"
+    post:
+      $ref: "./../resources/suppliers/create.yaml"
+  "/suppliers/{id}":
+    get:
+      $ref: "./../resources/suppliers/show.yaml"
+    put:
+      $ref: "./../resources/suppliers/update.yaml"
+    delete:
+      $ref: "./../resources/suppliers/delete.yaml"
+security:
+  - BearerAuth: []
+externalDocs:
+  description: Find out more about Swagger
+  url: "http://swagger.io"
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+    # api_key:
+    #   type: apiKey
+    #   name: api_key
+    #   in: header

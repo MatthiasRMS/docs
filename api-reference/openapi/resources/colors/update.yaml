@@ -1,0 +1,32 @@
+tags:
+  - color
+summary: Update a color
+description: Update an existing color by Id
+parameters:
+  - name: id
+    in: path
+    description: ID of color to return
+    required: true
+    schema:
+      type: string
+      format: uuid
+responses:
+  "200":
+    description: Successful operation
+    content:
+      application/json:
+        schema:
+          $ref: "./schema.yaml#/components/schemas/ColorResponse"
+  "400":
+    description: Invalid ID supplied
+  "404":
+    description: color not found
+  "405":
+    description: Validation exception
+requestBody:
+  description: Update an existent color
+  required: true
+  content:
+    multipart/form-data:
+      schema:
+        $ref: "./schema.yaml#/components/schemas/ColorUpdate"

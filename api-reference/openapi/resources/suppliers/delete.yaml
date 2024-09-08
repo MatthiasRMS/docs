@@ -1,0 +1,15 @@
+tags:
+  - supplier
+summary: Delete a supplier
+description: ""
+parameters:
+  - name: id
+    in: path
+    description: supplier id to delete
+    required: true
+    schema:
+      type: string
+      format: uuid
+responses:
+  "400":
+    description: Invalid supplier id

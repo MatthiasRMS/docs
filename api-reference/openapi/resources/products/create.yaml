@@ -1,0 +1,20 @@
+tags:
+  - product
+summary: Add a new product
+description: Add a new product
+responses:
+  "200":
+    description: Successful operation
+    content:
+      application/json:
+        schema:
+          $ref: "./schema.yaml#/components/schemas/ProductResponse"
+  "405":
+    description: Invalid input
+requestBody:
+  description: Create a new product in the store
+  required: true
+  content:
+    application/json:
+      schema:
+        $ref: "./schema.yaml#/components/schemas/ProductCreate"

@@ -1,0 +1,23 @@
+tags:
+  - construction_detail
+summary: Find construction detail by ID
+description: Returns a single construction detail
+parameters:
+  - name: id
+    in: path
+    description: ID of construction detail to return
+    required: true
+    schema:
+      type: string
+      format: uuid
+responses:
+  "200":
+    description: successful operation
+    content:
+      application/json:
+        schema:
+          $ref: "./schema.yaml#/components/schemas/ConstructionDetailResponse"
+  "400":
+    description: Invalid ID supplied
+  "404":
+    description: construction detail not found

@@ -1,0 +1,20 @@
+tags:
+  - bom_template
+summary: Add a new bom template
+description: Add a new bom template
+responses:
+  "200":
+    description: Successful operation
+    content:
+      application/json:
+        schema:
+          $ref: "./schema.yaml#/components/schemas/BomTemplateResponse"
+  "405":
+    description: Invalid input
+requestBody:
+  description: Create a new bom template
+  required: true
+  content:
+    application/json:
+      schema:
+        $ref: "./schema.yaml#/components/schemas/BomTemplateBase"

@@ -1,0 +1,15 @@
+tags:
+  - points_of_measure
+summary: Delete a points of measure
+description: ""
+parameters:
+  - name: id
+    in: path
+    description: points of measure id to delete
+    required: true
+    schema:
+      type: string
+      format: uuid
+responses:
+  "400":
+    description: Invalid points of measure id

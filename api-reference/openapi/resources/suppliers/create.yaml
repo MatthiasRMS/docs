@@ -1,0 +1,20 @@
+tags:
+  - supplier
+summary: Add a new supplier
+description: Add a new supplier
+responses:
+  "200":
+    description: Successful operation
+    content:
+      application/json:
+        schema:
+          $ref: "./schema.yaml#/components/schemas/SupplierResponse"
+  "405":
+    description: Invalid input
+requestBody:
+  description: Create a new supplier
+  required: true
+  content:
+    application/json:
+      schema:
+        $ref: "./schema.yaml#/components/schemas/SupplierBase"

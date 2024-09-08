@@ -1,0 +1,67 @@
+components:
+  schemas:
+    MeasurementTemplateBase:
+      type: object
+      properties:
+        name:
+          type: string
+          example: "Template Name"
+        companyId:
+          type: string
+          format: uuid
+          example: "123e4567-e89b-12d3-a456-426614174000"
+        unit:
+          type: string
+          description: "centimeters or inches"
+          example: "centimeters"
+      required:
+        - name
+        - companyId
+    MeasurementTemplateResponse:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/MeasurementTemplateBase'
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: "123e4567-e89b-12d3-a456-426614174000"
+        templateDimensionsCount:
+          type: integer
+          example: 5
+        templateSizesCount:
+          type: integer
+          example: 3
+        templateDimensions:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                format: uuid
+        templateSizes:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                format: uui
+        templateSizeDimensions:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                format: uuid
+              sizeId:
+                type: string
+                format: uuid
+              dimensionId:
+                type: string
+                format: uuid      
+              measurement:
+                type: string
+                example: "10"

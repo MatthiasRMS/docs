@@ -1,0 +1,15 @@
+tags:
+  - points_of_measure
+summary: Fetch all points of measure
+description: Fetch all the points of measure belonging to a company
+responses:
+  "200":
+    description: Successful operation
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            $ref: "./schema.yaml#/components/schemas/PointsOfMeasureResponse"
+  "405":
+    description: Invalid input
