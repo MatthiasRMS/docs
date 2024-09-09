@@ -28,7 +28,7 @@
     {
       "name": "API Reference",
       "url": "api-reference",
-      "openapi": "https://files.rechain.co/files.rechain.co/products_attachments/production/6c4adfe0-75d2-402d-8df6-48325583d279/openapi.yaml"
+      "openapi": "https://s3.eu-west-1.amazonaws.com/files.rechain.co/openapi/openapi.yaml"
     }
   ],
   "navigation": [
