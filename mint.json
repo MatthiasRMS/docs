@@ -1,5 +1,4 @@
 {
-  "$schema": "https://mintlify.com/schema.json",
   "name": "Rechain API Docs",
   "logo": {
     "dark": "/logo/logo.svg",
@@ -28,7 +27,8 @@
   "tabs": [
     {
       "name": "API Reference",
-      "url": "api-reference"
+      "url": "api-reference",
+      "openapi": "https://files.rechain.co/files.rechain.co/products_attachments/production/6c4adfe0-75d2-402d-8df6-48325583d279/openapi.yaml"
     }
   ],
   "navigation": [
@@ -38,14 +38,6 @@
         "welcome",
         "authentication",
         "concepts"
-      ]
-    },
-    {
-      "group": "API Reference",
-      "pages": [
-        "endpoint/get",
-        "endpoint/create",
-        "endpoint/delete"
       ]
     }
   ]
