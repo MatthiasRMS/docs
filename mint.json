@@ -27,17 +27,147 @@
   "tabs": [
     {
       "name": "API Reference",
-      "url": "api-reference",
-      "openapi": "https://s3.eu-west-1.amazonaws.com/files.rechain.co/openapi/openapi.yaml"
+      "url": "api-reference"
     }
   ],
-  "navigation": [
+  "navigation":
+  [
     {
       "group": "Get Started",
       "pages": [
         "welcome",
         "authentication",
         "concepts"
+      ]
+    },
+    {
+      "group": "product",
+      "pages": [
+        "product/fetch-all-products",
+        "product/add-a-new-product",
+        "product/find-product-by-id",
+        "product/update-a-product",
+        "product/delete-a-product"
+      ]
+    },
+    {
+      "group": "product_field",
+      "pages": [
+        "product_field/fetch-all-products-fields",
+        "product_field/add-a-new-product-field",
+        "product_field/find-product-field-by-id",
+        "product_field/update-a-product-field",
+        "product_field/delete-a-product-field"
+      ]
+    },
+    {
+      "group": "development_stage",
+      "pages": [
+        "development_stage/fetch-all-development-stages",
+        "development_stage/add-a-new-development-stage",
+        "development_stage/find-development-stage-by-id",
+        "development_stage/update-a-development-stage",
+        "development_stage/delete-a-development-stage"
+      ]
+    },
+    {
+      "group": "component",
+      "pages": [
+        "component/fetch-all-components",
+        "component/add-a-new-component",
+        "component/find-component-by-id",
+        "component/update-a-component",
+        "component/delete-a-component"
+      ]
+    },
+    {
+      "group": "review",
+      "pages": [
+        "review/fetch-all-reviews",
+        "review/add-a-new-review",
+        "review/find-review-by-id",
+        "review/update-a-review",
+        "review/delete-a-review"
+      ]
+    },
+    {
+      "group": "color",
+      "pages": [
+        "color/fetch-all-colors",
+        "color/add-a-new-color",
+        "color/find-color-by-id",
+        "color/update-a-color",
+        "color/delete-a-color"
+      ]
+    },
+    {
+      "group": "measurement_template",
+      "pages": [
+        "measurement_template/fetch-all-measurement-templates",
+        "measurement_template/add-a-new-measurement-template",
+        "measurement_template/find-measurement-template-by-id",
+        "measurement_template/update-a-measurement-template",
+        "measurement_template/delete-a-measurement-template"
+      ]
+    },
+    {
+      "group": "bom_template",
+      "pages": [
+        "bom_template/fetch-all-bom-templates",
+        "bom_template/add-a-new-bom-template",
+        "bom_template/find-bom-template-by-id",
+        "bom_template/update-a-bom-template",
+        "bom_template/delete-a-bom-template"
+      ]
+    },
+    {
+      "group": "points_of_measure",
+      "pages": [
+        "points_of_measure/fetch-all-points-of-measure",
+        "points_of_measure/add-a-new-points-of-measure",
+        "points_of_measure/find-points-of-measure-by-id",
+        "points_of_measure/update-a-points-of-measure",
+        "points_of_measure/delete-a-points-of-measure"
+      ]
+    },
+    {
+      "group": "tracker",
+      "pages": [
+        "tracker/fetch-all-trackers",
+        "tracker/add-a-new-tracker",
+        "tracker/find-tracker-by-id",
+        "tracker/update-a-tracker",
+        "tracker/delete-a-tracker"
+      ]
+    },
+    {
+      "group": "construction_detail",
+      "pages": [
+        "construction_detail/fetch-all-construction-details",
+        "construction_detail/add-a-new-construction-detail",
+        "construction_detail/find-construction-detail-by-id",
+        "construction_detail/update-a-construction-detail",
+        "construction_detail/delete-a-construction-detail"
+      ]
+    },
+    {
+      "group": "quality_control",
+      "pages": [
+        "quality_control/fetch-all-quality-controls",
+        "quality_control/add-a-new-quality-control",
+        "quality_control/find-quality-control-by-id",
+        "quality_control/update-a-quality-control",
+        "quality_control/delete-a-quality-control"
+      ]
+    },
+    {
+      "group": "supplier",
+      "pages": [
+        "supplier/fetch-all-suppliers",
+        "supplier/add-a-new-supplier",
+        "supplier/find-supplier-by-id",
+        "supplier/update-a-supplier",
+        "supplier/delete-a-supplier"
       ]
     }
   ]
