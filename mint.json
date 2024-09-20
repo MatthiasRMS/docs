@@ -28,7 +28,7 @@
     {
       "name": "API Reference",
       "url": "api-reference",
-      "openapi": "https://files.rechain.co/files.rechain.co/products_attachments/production/acd7651f-cc70-4e0b-a86e-19935279f5cd/bundled.yaml"
+      "openapi": "/openapi/openapi.yaml"
     }
   ],
   "navigation": [

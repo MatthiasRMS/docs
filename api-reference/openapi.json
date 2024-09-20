@@ -1,0 +1,779 @@
+{
+    "openapi": "3.1.0",
+    "servers": [
+      {
+        "url": "https://api.rechain.co/public/v1",
+        "description": "API server"
+      }
+    ],
+    "info": {
+      "description": "This is a sample Rechain Server based on the OpenAPI 3.0 specification.  You can find out more about\nSwagger at [http://swagger.io](http://swagger.io). In the third iteration of Rechain, we've switched to the design first approach!\nYou can now help us improve the API whether it's by making changes to the definition itself or to the code.\nThat way, with time, we can improve the API in general, and expose some of the new features in OAS3.\n\nSome useful links:\n- [The Rechain repository](https://github.com/swagger-api/swagger-productstore)\n- [The source API definition for the Rechain](https://github.com/swagger-api/swagger-productstore/blob/master/src/main/resources/openapi.yaml)",
+      "version": "1.0.17",
+      "title": "Swagger Productstore - OpenAPI 3.0",
+      "termsOfService": "http://swagger.io/terms/",
+      "contact": {
+        "email": "apiteam@swagger.io"
+      },
+      "license": {
+        "name": "Apache 2.0",
+        "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+      }
+    },
+    "tags": [
+      {
+        "name": "product",
+        "description": "Everything about your Products",
+        "externalDocs": {
+          "description": "Find out more",
+          "url": "http://swagger.io"
+        }
+      },
+      {
+        "name": "product_field",
+        "description": "Everything about your Product Fields",
+        "externalDocs": {
+          "description": "Find out more about our store",
+          "url": "http://swagger.io"
+        }
+      },
+      {
+        "name": "development_stage",
+        "description": "Everything about your Development Stages"
+      },
+      {
+        "name": "component",
+        "description": "Everything about your Components"
+      },
+      {
+        "name": "review",
+        "description": "Everything about your Reviews"
+      },
+      {
+        "name": "color",
+        "description": "Everything about your Colors"
+      },
+      {
+        "name": "measurement_template",
+        "description": "Everything about your Measurement Templates"
+      },
+      {
+        "name": "bom_template",
+        "description": "Everything about your BOM Templates"
+      },
+      {
+        "name": "points_of_measure",
+        "description": "Everything about your Points of measure"
+      },
+      {
+        "name": "tracker",
+        "description": "Everything about your Trackers"
+      },
+      {
+        "name": "construction_detail",
+        "description": "Everything about your Construction details"
+      },
+      {
+        "name": "quality_control",
+        "description": "Everything about your Quality Control"
+      },
+      {
+        "name": "supplier",
+        "description": "Everything about your Suppliers"
+      }
+    ],
+    "paths": {
+      "/products": {
+        "get": {
+          "tags": [
+            "product"
+          ],
+          "summary": "Fetch all products",
+          "description": "Fetch all products belonging to a company",
+          "responses": {
+            "200": {
+              "description": "Successful operation",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "example": "fb13bf64-2897-45ff-a29d-c09fc384811d"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "status": {
+                          "type": "string"
+                        },
+                        "createdAt": {
+                          "type": "string",
+                          "format": "date-time"
+                        },
+                        "updatedAt": {
+                          "type": "string",
+                          "format": "date-time"
+                        },
+                        "companyId": {
+                          "type": "integer"
+                        },
+                        "description": {
+                          "type": "string"
+                        },
+                        "notes": {
+                          "type": "string"
+                        },
+                        "reference": {
+                          "type": "string"
+                        },
+                        "productCategory": {
+                          "type": "string"
+                        },
+                        "developmentStageId": {
+                          "type": "integer"
+                        },
+                        "componentLevel": {
+                          "type": "string"
+                        },
+                        "supplierId": {
+                          "type": "integer"
+                        },
+                        "brandId": {
+                          "type": "integer"
+                        },
+                        "developmentStagesGroupId": {
+                          "type": "integer"
+                        },
+                        "mainComponentId": {
+                          "type": "integer"
+                        },
+                        "developmentStage": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "integer"
+                            },
+                            "name": {
+                              "type": "string"
+                            },
+                            "color": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "productPhotos": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "integer"
+                              },
+                              "fileUrl": {
+                                "type": "string"
+                              },
+                              "position": {
+                                "type": "integer"
+                              }
+                            }
+                          }
+                        },
+                        "variants": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "integer"
+                              },
+                              "name": {
+                                "type": "string"
+                              },
+                              "reference": {
+                                "type": "string"
+                              },
+                              "photoUrl": {
+                                "type": "string"
+                              },
+                              "variantPhotos": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "id": {
+                                      "type": "integer"
+                                    },
+                                    "fileUrl": {
+                                      "type": "string"
+                                    }
+                                  }
+                                }
+                              },
+                              "variantValues": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "id": {
+                                      "type": "integer"
+                                    },
+                                    "content": {
+                                      "type": "string"
+                                    },
+                                    "variantFieldId": {
+                                      "type": "integer"
+                                    }
+                                  }
+                                }
+                              },
+                              "identifiers": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "productSize": {
+                                      "type": "object",
+                                      "properties": {
+                                        "id": {
+                                          "type": "integer"
+                                        },
+                                        "name": {
+                                          "type": "string"
+                                        }
+                                      }
+                                    },
+                                    "barcode": {
+                                      "type": "string"
+                                    },
+                                    "sku": {
+                                      "type": "string"
+                                    },
+                                    "identifierValues": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "id": {
+                                            "type": "integer"
+                                          },
+                                          "content": {
+                                            "type": "string"
+                                          },
+                                          "identifierField": {
+                                            "type": "object",
+                                            "properties": {
+                                              "id": {
+                                                "type": "integer"
+                                              },
+                                              "name": {
+                                                "type": "string"
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "attachments": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "integer"
+                              },
+                              "fileUrl": {
+                                "type": "string"
+                              },
+                              "name": {
+                                "type": "string"
+                              },
+                              "attachmentCategory": {
+                                "type": "object",
+                                "properties": {
+                                  "en": {
+                                    "type": "string"
+                                  },
+                                  "cn": {
+                                    "type": "string"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "productLabels": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "integer"
+                              },
+                              "name": {
+                                "type": "string"
+                              },
+                              "position": {
+                                "type": "integer"
+                              },
+                              "labelId": {
+                                "type": "integer"
+                              },
+                              "labelGroupId": {
+                                "type": "integer"
+                              },
+                              "labelGroupPosition": {
+                                "type": "integer"
+                              }
+                            }
+                          }
+                        },
+                        "productValues": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "integer"
+                              },
+                              "content": {
+                                "type": "string"
+                              },
+                              "productFieldId": {
+                                "type": "integer"
+                              }
+                            }
+                          }
+                        },
+                        "sizeSets": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "integer"
+                              },
+                              "name": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        },
+                        "mainComponent": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "integer"
+                            },
+                            "name": {
+                              "type": "string"
+                            },
+                            "code": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "components": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "integer"
+                              },
+                              "name": {
+                                "type": "string"
+                              },
+                              "code": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "405": {
+              "description": "Invalid input"
+            }
+          }
+        },
+        "post": {
+          "tags": [
+            "product"
+          ],
+          "summary": "Add a new product",
+          "description": "Add a new product",
+          "responses": {
+            "200": {
+              "description": "Successful operation",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "example": "fb13bf64-2897-45ff-a29d-c09fc384811d"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "status": {
+                        "type": "string"
+                      },
+                      "createdAt": {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      "updatedAt": {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      "companyId": {
+                        "type": "integer"
+                      },
+                      "description": {
+                        "type": "string"
+                      },
+                      "notes": {
+                        "type": "string"
+                      },
+                      "reference": {
+                        "type": "string"
+                      },
+                      "productCategory": {
+                        "type": "string"
+                      },
+                      "developmentStageId": {
+                        "type": "integer"
+                      },
+                      "componentLevel": {
+                        "type": "string"
+                      },
+                      "supplierId": {
+                        "type": "integer"
+                      },
+                      "brandId": {
+                        "type": "integer"
+                      },
+                      "developmentStagesGroupId": {
+                        "type": "integer"
+                      },
+                      "mainComponentId": {
+                        "type": "integer"
+                      },
+                      "developmentStage": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "integer"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "color": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "productPhotos": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "integer"
+                            },
+                            "fileUrl": {
+                              "type": "string"
+                            },
+                            "position": {
+                              "type": "integer"
+                            }
+                          }
+                        }
+                      },
+                      "variants": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "integer"
+                            },
+                            "name": {
+                              "type": "string"
+                            },
+                            "reference": {
+                              "type": "string"
+                            },
+                            "photoUrl": {
+                              "type": "string"
+                            },
+                            "variantPhotos": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "type": "integer"
+                                  },
+                                  "fileUrl": {
+                                    "type": "string"
+                                  }
+                                }
+                              }
+                            },
+                            "variantValues": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "type": "integer"
+                                  },
+                                  "content": {
+                                    "type": "string"
+                                  },
+                                  "variantFieldId": {
+                                    "type": "integer"
+                                  }
+                                }
+                              }
+                            },
+                            "identifiers": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "productSize": {
+                                    "type": "object",
+                                    "properties": {
+                                      "id": {
+                                        "type": "integer"
+                                      },
+                                      "name": {
+                                        "type": "string"
+                                      }
+                                    }
+                                  },
+                                  "barcode": {
+                                    "type": "string"
+                                  },
+                                  "sku": {
+                                    "type": "string"
+                                  },
+                                  "identifierValues": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object",
+                                      "properties": {
+                                        "id": {
+                                          "type": "integer"
+                                        },
+                                        "content": {
+                                          "type": "string"
+                                        },
+                                        "identifierField": {
+                                          "type": "object",
+                                          "properties": {
+                                            "id": {
+                                              "type": "integer"
+                                            },
+                                            "name": {
+                                              "type": "string"
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "attachments": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "integer"
+                            },
+                            "fileUrl": {
+                              "type": "string"
+                            },
+                            "name": {
+                              "type": "string"
+                            },
+                            "attachmentCategory": {
+                              "type": "object",
+                              "properties": {
+                                "en": {
+                                  "type": "string"
+                                },
+                                "cn": {
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "productLabels": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "integer"
+                            },
+                            "name": {
+                              "type": "string"
+                            },
+                            "position": {
+                              "type": "integer"
+                            },
+                            "labelId": {
+                              "type": "integer"
+                            },
+                            "labelGroupId": {
+                              "type": "integer"
+                            },
+                            "labelGroupPosition": {
+                              "type": "integer"
+                            }
+                          }
+                        }
+                      },
+                      "productValues": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "integer"
+                            },
+                            "content": {
+                              "type": "string"
+                            },
+                            "productFieldId": {
+                              "type": "integer"
+                            }
+                          }
+                        }
+                      },
+                      "sizeSets": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "integer"
+                            },
+                            "name": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      },
+                      "mainComponent": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "integer"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "code": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "components": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "integer"
+                            },
+                            "name": {
+                              "type": "string"
+                            },
+                            "code": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "405": {
+              "description": "Invalid input"
+            }
+          },
+          "requestBody": {
+            "description": "Create a new product in the store",
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "name",
+                    "reference"
+                  ],
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "example": "T-Shirt"
+                    },
+                    "reference": {
+                      "type": "string",
+                      "example": "201"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "security": [
+      {
+        "BearerAuth": []
+      }
+    ],
+    "externalDocs": {
+      "description": "Find out more about Swagger",
+      "url": "http://swagger.io"
+    },
+    "components": {
+      "securitySchemes": {
+        "BearerAuth": {
+          "type": "http",
+          "scheme": "bearer"
+        }
+      }
+    }
+  }

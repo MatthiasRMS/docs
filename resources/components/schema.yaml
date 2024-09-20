@@ -1,0 +1,237 @@
+components:
+  schemas:
+    ComponentBase:
+      type: object
+      properties:
+        name:
+          type: string
+          example: "Component Name"
+        weight:
+          type: string
+          example: "1.5"
+        code:
+          type: string
+          example: "COMP1234"
+        companyId:
+          type: string
+          example: "123e4567-e89b-12d3-a456-426614174000"
+        componentCategoryId:
+          type: string
+          example: "123e4567-e89b-12d3-a456-426614174000"
+        library:
+          type: boolean
+          example: true
+        supplierId:
+          type: integer
+          example: 6
+        price:
+          type: number
+          format: float
+          example: 29.99
+        colorId:
+          type: string
+          example: "123e4567-e89b-12d3-a456-426614174000"
+        unitId:
+          type: string
+          example: "123e4567-e89b-12d3-a456-426614174000"
+        componentColorId:
+          type: string
+          example: "123e4567-e89b-12d3-a456-426614174000"
+        placement:
+          type: string
+          example: "Front"
+        priceEvolution:
+          type: object
+          example: {"1724855528": "4.38"}
+      required:
+        - name
+        - code
+        - companyId
+        - componentCategoryId
+
+    ComponentCreate:
+      type: object
+      properties:
+        name:
+          type: string
+          example: "Component Name"
+        weight:
+          type: string
+          example: "1.5"
+        code:
+          type: string
+          example: "COMP1234"
+        companyId:
+          type: string
+          example: "123e4567-e89b-12d3-a456-426614174000"
+        componentCategoryId:
+          type: string
+          example: "123e4567-e89b-12d3-a456-426614174000"
+        library:
+          type: boolean
+          example: true
+        supplierId:
+          type: integer
+          example: 6
+        price:
+          type: number
+          format: float
+          example: 29.99
+        colorId:
+          type: string
+          example: "123e4567-e89b-12d3-a456-426614174000"
+        printId:
+          type: string
+          example: "123e4567-e89b-12d3-a456-426614174000"
+        unitId:
+          type: string
+          example: "123e4567-e89b-12d3-a456-426614174000"
+        componentColorId:
+          type: string
+          example: "123e4567-e89b-12d3-a456-426614174000"
+        placement:
+          type: string
+          example: "Front"
+        priceEvolution:
+          type: object
+          example: {"1724855528": "4.38"}
+        photo:
+          type: string
+          format: binary
+          description: "The photo file to upload"
+      required:
+        - name
+        - code
+        - companyId
+        - componentCategoryId
+    ComponentResponse:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/ComponentBase'
+      properties:
+        id:
+          type: string
+          example: "123e4567-e89b-12d3-a456-426614174000"
+        createdAt:
+          type: string
+          format: date-time
+          example: "2024-09-03T10:00:00Z"
+        composition:
+          type: string
+          example: "50% Cotton, 50% Polyester"
+        photoUrl:
+          type: string
+          format: uri
+          example: "https://example.com/photo.jpg"
+        componentCategoryName:
+          type: string
+          example: "Category Name"
+        variantComponents:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                example: "123e4567-e89b-12d3-a456-426614174000"
+        componentVariants:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                example: "123e4567-e89b-12d3-a456-426614174000"
+              colorId:
+                type: string
+                example: "123e4567-e89b-12d3-a456-426614174000"
+              colorGroupId:
+                type: string
+                example: "123e4567-e89b-12d3-a456-426614174000"
+              uniqAssociationsIds:
+                type: string
+                example: "123e4567-e89b-12d3-a456-426614174000_123e4567-e89b-12d3-a456-426614174000"
+        componentValues:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                example: "123e4567-e89b-12d3-a456-426614174000"
+              componentFieldId:
+                type: string
+                example: "123e4567-e89b-12d3-a456-426614174000"
+              componentFieldUnit:
+                type: string
+                example: "kg"
+              content:
+                type: string
+                example: "Content Example"
+        componentColors:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                example: "123e4567-e89b-12d3-a456-426614174000"
+              color:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: "123e4567-e89b-12d3-a456-426614174000"
+                  name:
+                    type: string
+                    example: "Red"
+                  hex:
+                    type: string
+                    example: "#FF5733"
+                  yama:
+                    type: string
+                    example: "Yama Name"
+                  image:
+                    type: string
+                    format: uri
+                    example: "https://example.com/color.jpg"
+                  pantone:
+                    type: string
+                    example: "Pantone 1234"
+        colorGroups:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                example: "123e4567-e89b-12d3-a456-426614174000"
+              name:
+                type: string
+                example: "Color Group Name"
+        componentVariantTypeOptions:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                example: "123e4567-e89b-12d3-a456-426614174000"
+              content:
+                type: string
+                example: "Option Content"
+              componentId:
+                type: string
+                example: "123e4567-e89b-12d3-a456-426614174000"
+              componentVariantTypeId:
+                type: string
+                example: "123e4567-e89b-12d3-a456-426614174000"
+        unit:
+          type: object
+          properties:
+            id:
+              type: string
+              example: "123e4567-e89b-12d3-a456-426614174000"
+            name:
+              type: string
+              example: "Unit Name"

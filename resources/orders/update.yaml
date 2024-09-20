@@ -1,0 +1,32 @@
+tags:
+  - order
+summary: Update a order
+description: Update an existing order by Id
+parameters:
+  - name: id
+    in: path
+    description: ID of order to return
+    required: true
+    schema:
+      type: string
+      format: uuid
+responses:
+  "200":
+    description: Successful operation
+    content:
+      application/json:
+        schema:
+          $ref: "./schema.yaml#/components/schemas/OrderResponse"
+  "400":
+    description: Invalid ID supplied
+  "404":
+    description: Order not found
+  "405":
+    description: Validation exception
+requestBody:
+  description: Update an existent order
+  required: true
+  content:
+    application/json:
+      schema:
+        $ref: "./schema.yaml#/components/schemas/OrderBase"

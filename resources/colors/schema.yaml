@@ -1,0 +1,181 @@
+components:
+  schemas:
+    ColorBase:
+      type: object
+      properties:
+        name:
+          type: string
+          example: "Red"
+        companyId:
+          type: string
+          format: uuid
+          example: "123e4567-e89b-12d3-a456-426614174000"
+        pantone:
+          type: string
+          example: "PANTONE 186 C"
+        pantoneName:
+          type: string
+          example: "Red"
+        image:
+          type: string
+          format: uri
+          example: "https://example.com/images/red.png"
+        hex:
+          type: string
+          example: "#FF0000"
+        yama:
+          type: string
+          example: "R-YM-001"
+    ColorCreate:
+      type: object
+      properties:
+        name:
+          type: string
+          example: "Red"
+        companyId:
+          type: string
+          format: uuid
+          example: "123e4567-e89b-12d3-a456-426614174000"
+        pantone:
+          type: string
+          example: "PANTONE 186 C"
+        pantoneName:
+          type: string
+          example: "Red"
+        hex:
+          type: string
+          example: "#FF0000"
+        yama:
+          type: string
+          example: "R-YM-001"
+        image:
+          type: string
+          format: binary
+          description: "The photo file to upload"
+      required:
+        - name
+        - companyId
+    ColorUpdate:
+      type: object
+      properties:
+        name:
+          type: string
+          example: "Red"
+        companyId:
+          type: string
+          format: uuid
+          example: "123e4567-e89b-12d3-a456-426614174000"
+        pantone:
+          type: string
+          example: "PANTONE 186 C"
+        pantoneName:
+          type: string
+          example: "Red"
+        hex:
+          type: string
+          example: "#FF0000"
+        yama:
+          type: string
+          example: "R-YM-001"
+        image:
+          type: string
+          format: binary
+          description: "The photo file to upload"
+        colorValues:
+          type: object
+          properties:
+            colorFieldId:
+              type: string
+              format: uuid
+              example: "123e4567-e89b-12d3-a456-426614174000"
+            content:
+              type: string
+              example: "Value Content"
+      required:
+        - name
+        - companyId
+
+    ColorResponse:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/ColorBase'
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: "123e4567-e89b-12d3-a456-426614174000"
+        createdAt:
+          type: string
+          format: date-time
+          example: "2023-08-23T18:25:43.511Z"
+        components:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                format: uuid
+                example: "123e4567-e89b-12d3-a456-426614174000"
+              componentName:
+                type: string
+                example: "Component Name"
+              componentId:
+                type: string
+                format: uuid
+                example: "123e4567-e89b-12d3-a456-426614174000"
+        variants:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                format: uuid
+                example: "123e4567-e89b-12d3-a456-426614174000"
+              name:
+                type: string
+                example: "Variant Name"
+              productId:
+                type: string
+                format: uuid
+                example: "123e4567-e89b-12d3-a456-426614174000"
+              productName:
+                type: string
+                example: "Product Name"
+        colorValues:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                format: uuid
+                example: "123e4567-e89b-12d3-a456-426614174000"
+              content:
+                type: string
+                example: "Value Content"
+              colorId:
+                type: string
+                format: uuid
+                example: "123e4567-e89b-12d3-a456-426614174000"
+              colorFieldId:
+                type: string
+                format: uuid
+                example: "123e4567-e89b-12d3-a456-426614174000"
+        resourceLabels:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                format: uuid
+                example: "123e4567-e89b-12d3-a456-426614174000"
+              labelId:
+                type: string
+                format: uuid
+                example: "123e4567-e89b-12d3-a456-426614174000"
+              name:
+                type: string
+                example: "Label Name"

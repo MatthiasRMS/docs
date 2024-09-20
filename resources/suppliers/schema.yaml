@@ -1,0 +1,98 @@
+components:
+  schemas:
+    SupplierBase:
+      type: object
+      properties:
+        name:
+          type: string
+          example: "Supplier Name"
+        companyId:
+          type: string
+          format: uuid
+          example: "123e4567-e89b-12d3-a456-426614174000"
+        moq:
+          type: integer
+          example: 500
+        about:
+          type: string
+          example: "Leading supplier of textiles with 20+ years of experience."
+        componentsSourcing:
+          type: boolean
+          example: false
+        paymentTerms:
+          type: string
+          example: "Net 30"
+        bulkLeadTime:
+          type: string
+          example: "45 days"
+        incoterms:
+          type: string
+          example: "FOB"
+        supplierType:
+          type: string
+          example: "Manufacturer"
+        certifications:
+          type: array
+          items:
+            type: string
+          example: ["ISO 9001", "CE"]
+        productCategoriesIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+          example: ["123e4567-e89b-12d3-a456-426614174002", "123e4567-e89b-12d3-a456-426614174003"]
+      required:
+        - name
+        - companyId
+    SupplierResponse:
+      type: object
+      properties:
+        uuid:
+          type: string
+          format: uuid
+          example: "123e4567-e89b-12d3-a456-426614174000"
+        id:
+          type: integer
+          example: 1
+        skills:
+          type: array
+          items:
+            type: string
+          example: ["cutting", "sewing", "printing"]
+        eori:
+          type: string
+          example: "GB123456789000"
+        capabilities:
+          type: array
+          items:
+            type: string
+          example: ["mass production", "rapid prototyping"]
+        locationsCount:
+          type: integer
+          example: 3
+        country:
+          type: array
+          items:
+            type: string
+          example: ["USA", "China", "India"]
+        products:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                format: uuid
+                example: "123e4567-e89b-12d3-a456-426614174004"
+              name:
+                type: string
+                example: "Product Name"
+              description:
+                type: string
+                example: "High-quality product for industrial use."
+              productCategory:
+                type: string
+                example: "Textiles"
+      allOf:
+        - $ref: '#/components/schemas/SupplierBase'

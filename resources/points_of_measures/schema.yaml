@@ -1,0 +1,93 @@
+components:
+  schemas:
+    PointsOfMeasureBase:
+      type: object
+      properties:
+        name:
+          type: string
+          example: "Dimension Name"
+        code:
+          type: string
+          example: "DIM1234"
+        instructions:
+          type: string
+          example: "Follow these instructions for dimension."
+        toleranceMinusIn:
+          type: number
+          format: float
+          example: -0.5
+        toleranceMinusCm:
+          type: number
+          format: float
+          example: -1.27
+        tolerancePlusIn:
+          type: number
+          format: float
+          example: 0.5
+        tolerancePlusCm:
+          type: number
+          format: float
+          example: 1.27
+        companyId:
+          type: string
+          format: uuid
+          example: "123e4567-e89b-12d3-a456-426614174000"
+      required:
+        - id
+        - name
+        - code
+        - companyId
+    PointsOfMeasureCreate:
+      type: object
+      properties:
+        name:
+          type: string
+          example: "Dimension Name"
+        code:
+          type: string
+          example: "DIM1234"
+        instructions:
+          type: string
+          example: "Follow these instructions for dimension."
+        photo:
+          type: string
+          format: binary
+          description: "The photo file to upload"
+        toleranceMinusIn:
+          type: number
+          format: float
+          example: -0.5
+        toleranceMinusCm:
+          type: number
+          format: float
+          example: -1.27
+        tolerancePlusIn:
+          type: number
+          format: float
+          example: 0.5
+        tolerancePlusCm:
+          type: number
+          format: float
+          example: 1.27
+        companyId:
+          type: string
+          format: uuid
+          example: "123e4567-e89b-12d3-a456-426614174000"
+      required:
+        - id
+        - name
+        - code
+        - companyId
+    PointsOfMeasureResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: "123e4567-e89b-12d3-a456-426614174000"
+        photo:
+          type: string
+          format: url
+          example: "https://example.com/photo.jpg"
+      allOf:
+        - $ref: '#/components/schemas/PointsOfMeasureBase'

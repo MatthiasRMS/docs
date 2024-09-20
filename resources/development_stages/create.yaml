@@ -1,0 +1,20 @@
+tags:
+  - development_stage
+summary: Add a new development stage
+description: Add a new development stage
+responses:
+  "200":
+    description: Successful operation
+    content:
+      application/json:
+        schema:
+          $ref: "./schema.yaml#/components/schemas/DevelopmentStageResponse"
+  "405":
+    description: Invalid input
+requestBody:
+  description: Create a new development stage
+  required: true
+  content:
+    application/json:
+      schema:
+        $ref: "./schema.yaml#/components/schemas/DevelopmentStage"

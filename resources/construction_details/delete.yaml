@@ -1,0 +1,15 @@
+tags:
+  - construction_detail
+summary: Delete a construction detail
+description: ""
+parameters:
+  - name: id
+    in: path
+    description: construction detail id to delete
+    required: true
+    schema:
+      type: string
+      format: uuid
+responses:
+  "400":
+    description: Invalid construction detail id

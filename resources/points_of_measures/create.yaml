@@ -1,0 +1,20 @@
+tags:
+  - points_of_measure
+summary: Add a new points of measure
+description: Add a new points of measure
+responses:
+  "200":
+    description: Successful operation
+    content:
+      application/json:
+        schema:
+          $ref: "./schema.yaml#/components/schemas/PointsOfMeasureResponse"
+  "405":
+    description: Invalid input
+requestBody:
+  description: Create a new points of measure
+  required: true
+  content:
+    multipart/form-data:
+      schema:
+        $ref: "./schema.yaml#/components/schemas/PointsOfMeasureCreate"

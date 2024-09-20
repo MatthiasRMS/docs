@@ -1,0 +1,308 @@
+components:
+  schemas:
+    QualityControlBase:
+      type: object
+      properties:
+        milestoneId:
+          type: string
+          format: uuid
+        userId:
+          type: string
+          format: uuid
+          example: "123e4567-e89b-12d3-a456-426614174000"
+        status:
+          type: integer
+          description: "Quality control status, can be any of { draft: 0, requested: 1, started: 2, completed: 3 }"
+          enum:
+            - 0
+            - 1
+            - 2
+            - 3
+          example: 1
+        inspectorId:
+          type: string
+          format: uuid
+        acknowledgedDefectsIdentified:
+          type: boolean
+          example: true
+        willReplaceDefects:
+          type: boolean
+          example: true
+        cooperationLevel:
+          type: string
+        inspectionLevel:
+          type: string
+          example: "AQL 1.5"
+        approved:
+          type: boolean
+          example: true
+        companyId:
+          type: string
+          format: uuid
+          example: "123e4567-e89b-12d3-a456-426614174000"
+        productId:
+          type: string
+          format: uuid
+          example: "123e4567-e89b-12d3-a456-426614174000"
+        orderNumber:
+          type: string
+          example: "4655-2027781"
+        supplierId:
+          type: integer
+          example: 120
+        fixedCount:
+          type: integer
+          example: 0
+        inspectionDate:
+          type: string
+          format: date-time
+          example: "2024-09-04T10:15:30Z"
+        finalResult:
+          type: integer
+          description: "Quality control final result, can be any of { pending: 0, passed: 1, failed: 2 }"
+          enum:
+            - 0
+            - 1
+            - 2
+          example: 1
+        formVersion:
+          type: string
+
+    QualityControlResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        uuid:
+          type: string
+          format: uuid
+        token:
+          type: string
+        result:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        orderId:
+          type: string
+          format: uuid
+        orderUuid:
+          type: string
+          format: uuid
+        milestoneName:
+          type: string
+        orderReference:
+          type: string
+        dueDate:
+          type: string
+          format: date-time
+        productName:
+          type: string
+        sizes:
+          type: array
+          items:
+            type: string
+            example: "LG"
+        reportFileUrl:
+          type: string
+          format: uri
+        viewHistory:
+          type: object
+          additionalProperties: true
+        actualInspectionDate:
+          type: string
+          format: date-time
+        quantityToControl:
+          type: integer
+        enableQcCheckin:
+          type: boolean
+        product:
+          type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+            companyId:
+              type: string
+              format: uuid
+            name:
+              type: string
+            reference:
+              type: string
+            dimensionsUnit:
+              type: string
+        orderProducts:
+          type: array
+          items:
+            type: object
+            properties:
+              controlVariantId:
+                type: string
+                format: uuid
+              id:
+                type: string
+                format: uuid
+              variantId:
+                type: string
+                format: uuid
+              name:
+                type: string
+              quantity:
+                type: integer
+              sizesQuantity:
+                type: object
+                additionalProperties: true
+              quantityToControl:
+                type: integer
+        company:
+          type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+            name:
+              type: string
+            logoUrl:
+              type: string
+              format: uri
+        supplier:
+          type: object
+          properties:
+            id:
+              type: integer
+            name:
+              type: string
+            address:
+              type: string
+            country:
+              type: string
+            contact:
+              type: string
+        controlChecks:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                format: uuid
+              name:
+                type: string
+              names:
+                type: object
+                additionalProperties: true
+              icon:
+                type: string
+              createdByRechain:
+                type: boolean
+              formFields:
+                type: object
+                additionalProperties: true
+              statuses:
+                type: object
+                additionalProperties: true
+              description:
+                type: string
+              descriptions:
+                type: object
+                additionalProperties: true
+              position:
+                type: integer
+              qualityCheckId:
+                type: string
+                format: uuid
+              settings:
+                type: object
+                additionalProperties: true
+              results:
+                type: object
+                additionalProperties: true
+              status:
+                type: string
+              approval:
+                type: object
+                additionalProperties: true
+              controlCheckPhotos:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    createdAt:
+                      type: string
+                      format: date-time
+                    fileUrl:
+                      type: string
+                      format: uri
+                    comment:
+                      type: string
+                    rotationAngle:
+                      type: number
+        inspector:
+          type: object
+          properties:
+            fullName:
+              type: string
+        controlCheckin:
+          type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+            createdAt:
+              type: string
+              format: date-time
+            latitude:
+              type: number
+            longitude:
+              type: number
+            inspectorPhotoUrl:
+              type: string
+              format: uri
+        qualityControlValues:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                format: uuid
+              content:
+                type: string
+              qualityControlFieldId:
+                type: string
+                format: uuid
+            example: {
+              id: "123e4567-e89b-12d3-a456-426614174000",
+              content: "Sample content",
+              qualityControlFieldId: "123e4567-e89b-12d3-a456-426614174000"
+            }
+        orders:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                format: uuid
+              exFactoryDate:
+                type: string
+                format: date-time
+              shippingMethod:
+                type: string
+              createdAt:
+                type: string
+                format: date-time
+              origin:
+                type: string
+            example: {
+              id: "123e4567-e89b-12d3-a456-426614174000",
+              exFactoryDate: "2024-09-04T10:15:30Z",
+              shippingMethod: "Air",
+              createdAt: "2024-09-04T10:15:30Z",
+              origin: "China"
+            }
+      allOf:
+        - $ref: '#/components/schemas/QualityControlBase'

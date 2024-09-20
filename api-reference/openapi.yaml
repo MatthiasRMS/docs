@@ -1,6 +1,6 @@
 openapi: 3.1.0
 servers:
-  - url: https://api.rechain.co/public/v1
+  - url: 'https://api.rechain.co/public/v1'
     description: API server
 info:
   description: |-
@@ -14,23 +14,23 @@ info:
     - [The source API definition for the Rechain](https://github.com/swagger-api/swagger-productstore/blob/master/src/main/resources/openapi.yaml)
   version: 1.0.17
   title: Swagger Productstore - OpenAPI 3.0
-  termsOfService: "http://swagger.io/terms/"
+  termsOfService: 'http://swagger.io/terms/'
   contact:
     email: apiteam@swagger.io
   license:
     name: Apache 2.0
-    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 tags:
   - name: product
     description: Everything about your Products
     externalDocs:
       description: Find out more
-      url: "http://swagger.io"
+      url: 'http://swagger.io'
   - name: product_field
     description: Everything about your Product Fields
     externalDocs:
       description: Find out more about our store
-      url: "http://swagger.io"
+      url: 'http://swagger.io'
   - name: development_stage
     description: Everything about your Development Stages
   - name: component
@@ -56,171 +56,255 @@ tags:
 paths:
   /products:
     get:
-      $ref: "./../resources/products/index.yaml"
+      tags:
+        - product
+      summary: Fetch all products
+      description: Fetch all products belonging to a company
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/paths/~1products/post/responses/200/content/application~1json/schema'
+        '405':
+          description: Invalid input
     post:
-      $ref: "./../resources/products/create.yaml"
-  "/product/{id}":
-    get:
-      $ref: "./../resources/products/show.yaml"
-    put:
-      $ref: "./../resources/products/update.yaml"
-    delete:
-      $ref: "./../resources/products/delete.yaml"
-  /product_fields:
-    get:
-      $ref: "./../resources/product_fields/index.yaml"
-    post:
-      $ref: "./../resources/product_fields/create.yaml"
-  "/product_fields/{id}":
-    get:
-      $ref: "./../resources/product_fields/show.yaml"
-    put:
-      $ref: "./../resources/product_fields/update.yaml"
-    delete:
-      $ref: "./../resources/product_fields/delete.yaml"
-  /development_stages:
-    get:
-      $ref: "./../resources/development_stages/index.yaml"
-    post:
-      $ref: "./../resources/development_stages/create.yaml"
-  "/development_stages/{id}":
-    get:
-      $ref: "./../resources/development_stages/show.yaml"
-    put:
-      $ref: "./../resources/development_stages/update.yaml"
-    delete:
-      $ref: "./../resources/development_stages/delete.yaml"
-  /components:
-    get:
-      $ref: "./../resources/components/index.yaml"
-    post:
-      $ref: "./../resources/components/create.yaml"
-  "/components/{id}":
-    get:
-      $ref: "./../resources/components/show.yaml"
-    put:
-      $ref: "./../resources/components/update.yaml"
-    delete:
-      $ref: "./../resources/components/delete.yaml"
-  /reviews:
-    get:
-      $ref: "./../resources/reviews/index.yaml"
-    post:
-      $ref: "./../resources/reviews/create.yaml"
-  "/reviews/{id}":
-    get:
-      $ref: "./../resources/reviews/show.yaml"
-    put:
-      $ref: "./../resources/reviews/update.yaml"
-    delete:
-      $ref: "./../resources/reviews/delete.yaml"
-  /colors:
-    get:
-      $ref: "./../resources/colors/index.yaml"
-    post:
-      $ref: "./../resources/colors/create.yaml"
-  "/colors/{id}":
-    get:
-      $ref: "./../resources/colors/show.yaml"
-    put:
-      $ref: "./../resources/colors/update.yaml"
-    delete:
-      $ref: "./../resources/colors/delete.yaml"
-  /measurement_templates:
-    get:
-      $ref: "./../resources/measurement_templates/index.yaml"
-    post:
-      $ref: "./../resources/measurement_templates/create.yaml"
-  "/measurement_templates/{id}":
-    get:
-      $ref: "./../resources/measurement_templates/show.yaml"
-    put:
-      $ref: "./../resources/measurement_templates/update.yaml"
-    delete:
-      $ref: "./../resources/measurement_templates/delete.yaml"
-  /bom_templates:
-    get:
-      $ref: "./../resources/bom_templates/index.yaml"
-    post:
-      $ref: "./../resources/bom_templates/create.yaml"
-  "/bom_templates/{id}":
-    get:
-      $ref: "./../resources/bom_templates/show.yaml"
-    put:
-      $ref: "./../resources/bom_templates/update.yaml"
-    delete:
-      $ref: "./../resources/bom_templates/delete.yaml"
-  /points_of_measures:
-    get:
-      $ref: "./../resources/points_of_measures/index.yaml"
-    post:
-      $ref: "./../resources/points_of_measures/create.yaml"
-  "/points_of_measures/{id}":
-    get:
-      $ref: "./../resources/points_of_measures/show.yaml"
-    put:
-      $ref: "./../resources/points_of_measures/update.yaml"
-    delete:
-      $ref: "./../resources/points_of_measures/delete.yaml"
-  /trackers:
-    get:
-      $ref: "./../resources/trackers/index.yaml"
-    post:
-      $ref: "./../resources/trackers/create.yaml"
-  "/trackers/{id}":
-    get:
-      $ref: "./../resources/trackers/show.yaml"
-    put:
-      $ref: "./../resources/trackers/update.yaml"
-    delete:
-      $ref: "./../resources/trackers/delete.yaml"
-  /construction_details:
-    get:
-      $ref: "./../resources/construction_details/index.yaml"
-    post:
-      $ref: "./../resources/construction_details/create.yaml"
-  "/construction_details/{id}":
-    get:
-      $ref: "./../resources/construction_details/show.yaml"
-    put:
-      $ref: "./../resources/construction_details/update.yaml"
-    delete:
-      $ref: "./../resources/construction_details/delete.yaml"
-  /quality_controls:
-    get:
-      $ref: "./../resources/quality_controls/index.yaml"
-    post:
-      $ref: "./../resources/quality_controls/create.yaml"
-  "/quality_controls/{id}":
-    get:
-      $ref: "./../resources/quality_controls/show.yaml"
-    put:
-      $ref: "./../resources/quality_controls/update.yaml"
-    delete:
-      $ref: "./../resources/quality_controls/delete.yaml"
-  /suppliers:
-    get:
-      $ref: "./../resources/suppliers/index.yaml"
-    post:
-      $ref: "./../resources/suppliers/create.yaml"
-  "/suppliers/{id}":
-    get:
-      $ref: "./../resources/suppliers/show.yaml"
-    put:
-      $ref: "./../resources/suppliers/update.yaml"
-    delete:
-      $ref: "./../resources/suppliers/delete.yaml"
+      tags:
+        - product
+      summary: Add a new product
+      description: Add a new product
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: fb13bf64-2897-45ff-a29d-c09fc384811d
+                  name:
+                    type: string
+                  status:
+                    type: string
+                  createdAt:
+                    type: string
+                    format: date-time
+                  updatedAt:
+                    type: string
+                    format: date-time
+                  companyId:
+                    type: integer
+                  description:
+                    type: string
+                  notes:
+                    type: string
+                  reference:
+                    type: string
+                  productCategory:
+                    type: string
+                  developmentStageId:
+                    type: integer
+                  componentLevel:
+                    type: string
+                  supplierId:
+                    type: integer
+                  brandId:
+                    type: integer
+                  developmentStagesGroupId:
+                    type: integer
+                  mainComponentId:
+                    type: integer
+                  developmentStage:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                      name:
+                        type: string
+                      color:
+                        type: string
+                  productPhotos:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                        fileUrl:
+                          type: string
+                        position:
+                          type: integer
+                  variants:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                        name:
+                          type: string
+                        reference:
+                          type: string
+                        photoUrl:
+                          type: string
+                        variantPhotos:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              id:
+                                type: integer
+                              fileUrl:
+                                type: string
+                        variantValues:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              id:
+                                type: integer
+                              content:
+                                type: string
+                              variantFieldId:
+                                type: integer
+                        identifiers:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              productSize:
+                                type: object
+                                properties:
+                                  id:
+                                    type: integer
+                                  name:
+                                    type: string
+                              barcode:
+                                type: string
+                              sku:
+                                type: string
+                              identifierValues:
+                                type: array
+                                items:
+                                  type: object
+                                  properties:
+                                    id:
+                                      type: integer
+                                    content:
+                                      type: string
+                                    identifierField:
+                                      type: object
+                                      properties:
+                                        id:
+                                          type: integer
+                                        name:
+                                          type: string
+                  attachments:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                        fileUrl:
+                          type: string
+                        name:
+                          type: string
+                        attachmentCategory:
+                          type: object
+                          properties:
+                            en:
+                              type: string
+                            cn:
+                              type: string
+                  productLabels:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                        name:
+                          type: string
+                        position:
+                          type: integer
+                        labelId:
+                          type: integer
+                        labelGroupId:
+                          type: integer
+                        labelGroupPosition:
+                          type: integer
+                  productValues:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                        content:
+                          type: string
+                        productFieldId:
+                          type: integer
+                  sizeSets:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                        name:
+                          type: string
+                  mainComponent:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                      name:
+                        type: string
+                      code:
+                        type: string
+                  components:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                        name:
+                          type: string
+                        code:
+                          type: string
+        '405':
+          description: Invalid input
+      requestBody:
+        description: Create a new product in the store
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - name
+                - reference
+              properties:
+                name:
+                  type: string
+                  example: T-Shirt
+                reference:
+                  type: string
+                  example: '201'
 security:
   - BearerAuth: []
 externalDocs:
   description: Find out more about Swagger
-  url: "http://swagger.io"
+  url: 'http://swagger.io'
 components:
   securitySchemes:
     BearerAuth:
       type: http
       scheme: bearer
-    # api_key:
-    #   type: apiKey
-    #   name: api_key
-    #   in: header

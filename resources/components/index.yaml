@@ -1,0 +1,15 @@
+tags:
+  - component
+summary: Fetch all components
+description: Fetch all the components belonging to a company
+responses:
+  "200":
+    description: Successful operation
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            $ref: "./schema.yaml#/components/schemas/ComponentResponse"
+  "405":
+    description: Invalid input
